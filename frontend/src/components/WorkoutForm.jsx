@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { WorkoutContext } from '../context/context';
 
 function WorkoutForm() {
     const [title, setTitle] = useState('');
@@ -6,7 +7,7 @@ function WorkoutForm() {
     const [reps, setReps] = useState('');
     const [error, setError] = useState(null);
 
-
+    const { dispatch} = useContext(WorkoutContext)
     const handleSubmit = async (e) => {
         e.preventDefault();
         const workout = { title, load, reps }
@@ -28,7 +29,7 @@ function WorkoutForm() {
             setReps('')
             setError(null)
             console.log("new workout added");
-            
+            dispatch({type:'ADD_WORKOUT',payload:json})
         }
 
     }
@@ -38,10 +39,10 @@ function WorkoutForm() {
                 <h3>Add a new workout</h3>
                 <label>Title</label>
                 <input onChange={(e) => { setTitle(e.target.value) }} type='text' value={title} />
-                <label>LOAD:</label>
-                <input onChange={(e) => { setLoad(e.target.value) }} type='number' value={load} />
                 <label>REPS</label>
                 <input onChange={(e) => { setReps(e.target.value) }} type='number' value={reps} />
+                <label>LOAD:</label>
+                <input onChange={(e) => { setLoad(e.target.value) }} type='number' value={load} />
                 <button>Add workout</button>
                 {error && <div className='error'> {error}</div>}
             </form>

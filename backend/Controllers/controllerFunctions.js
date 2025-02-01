@@ -15,7 +15,7 @@ const createWorkout = async (req,res)=> {
 //GET all workouts
 const getAllWorkout = async (req,res) => {
     try{
-        const allWorkouts = await Workout.find()
+        const allWorkouts = await Workout.find().sort({ createdAt: -1 })
         res.status(200).json(allWorkouts)
 
     }catch(err){
@@ -43,7 +43,7 @@ const deleteWorkout  = async (req,res)=>{
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({error:'No such Workout'})
     }
-    const workout = await Workout.deleteMany();
+    const workout = await Workout.findByIdAndDelete(id)
     if(!workout){
         return res.status(400).json({error:'No such Workout'})
     }

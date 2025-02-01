@@ -1,115 +1,118 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* High-Tech Futuristic Theme */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+ :root {
+  --primary: #007bff;
+  --secondary: #17a2b8;
+  --background: linear-gradient(135deg, #001f3f, #002752, #003366);
+  --card-bg: rgba(15, 15, 30, 0.9);
+  --text-color: #e0e0e0;
+  --error: #dc3545;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+  
 
+  body {
+    background: var(--background);
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-color);
+  }
 
-/* google font */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-/* layout */
-:root {
-  --primary: #1aac83;
-  --error: #e7195a;
-}
-body {
-  background: #f1f1f1;
-  margin: 0;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-}
-header {
-  background: #fff;
-}
-header .container {
-  font-size: xx-large;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-header a {
-  color: #333;
-  text-decoration: none;
-}
-.pages {
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
-}
+  /* Header */
+  header {
+    background: var(--primary);
+    padding: 15px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #121212;
+  }
 
-/* homepage */
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
-}
-.workout-details {
-  background: #fff;
-  border-radius: 4px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-}
-.workout-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.workout-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.workout-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-}
+  /* Layout */
+  .home {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 40px;
+    gap: 50px;
+  }
 
-/* new workout form */
-label,
-input {
-  display: block;
-}
-input {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
-}
-div.error {
-  padding: 10px;
-  background: #ffefef;
-  border: 1px solid var(--error);
-  color: var(--error);
-  border-radius: 4px;
-  margin: 20px 0;
-}
+  /* Grid-based Workouts */
+  .workouts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+
+  .workout-details {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px;
+    transition: 0.3s ease;
+  }
+
+  .workout-details:hover {
+    transform: scale(1.005);
+    box-shadow: 0px 0px 20px var(--primary);
+  }
+
+  .workout-details h4 {
+    color: var(--primary);
+    font-size: 1.5rem;
+  }
+  .workout-details span {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--error);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer; /* Ensures cursor changes to pointer */
+    transition: background 0.3s ease;
+  }
+
+  .workout-details span:hover {
+    background: darkred; /* Darker red on hover */
+  }
+
+  /* Form */
+  form {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary);
+  }
+
+  input {
+    padding: 10px;
+    margin: 15px;
+    width: 90%;
+    background: var(--background);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  }
+
+  form button {
+    width: 100%;
+    padding: 12px;
+    background: var(--secondary);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  form button:hover {
+    background: var(--primary);
+  }
