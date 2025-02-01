@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import WorkoutForm from './WorkoutForm'
 
 function Home() {
     const [workout, setWorkout] = useState([])
@@ -6,10 +7,7 @@ function Home() {
     useEffect(() => {
         const fetchWorkouts = async () => {
             const response = await fetch('/api/workouts')
-            console.log(response, 'asf')
             const json = await response.json()
-            console.log(json);
-
             if (response.ok) {
                 setWorkout(json)
             }
@@ -31,9 +29,10 @@ function Home() {
                         </div>
                     ))
                 ) : (<>Loading...</>)
-
                 }
+            
             </div>
+            <WorkoutForm/>
         </div>
     )
 }
