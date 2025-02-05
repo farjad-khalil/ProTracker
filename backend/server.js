@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
 const { 
     createWorkout, 
     getAllWorkout, 
@@ -12,39 +13,38 @@ const {
 
 const app = express();
 
-// ✅ Enable CORS for your frontend domain
-app.use(cors({
-    origin: "https://workouttrackerapp-rho.vercel.app", // Allow frontend domain
+// ✅ Allow CORS for specific frontend domain
+const corsOptions = {
+    origin: ["https://workouttrackerapp-rho.vercel.app"], // Your frontend domain
     methods: "GET,POST,PUT,PATCH,DELETE",
-    allowedHeaders: "Content-Type,Authorization"
-}));
+    allowedHeaders: "Content-Type,Authorization",
+    credentials: true
+};
+
+app.use(cors(corsOptions));
 
 // ✅ Middleware
 app.use(express.json());
 
 app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://workouttrackerapp-rho.vercel.app");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
     console.log(req.path, '  ', req.method);
     next();
 });
 
 // ✅ Routes
 app.get('/', (req, res) => {
-    res.json({ message: 'Response from root' });
+    res.json({ message: 'CORS is working properly!' });
 });
 
-// GET all workouts
+// Workout Routes
 app.get('/api/workouts', getAllWorkout);
-
-// GET single workout
 app.get('/api/workouts/:id', getSinWorkout);
-
-// POST a new workout
 app.post('/api/workouts', createWorkout);
-
-// DELETE a workout
 app.delete('/api/workouts/:id', deleteWorkout);
-
-// UPDATE a workout
 app.patch('/api/workouts/:id', updateWorkout);
 
 // ✅ Connect to MongoDB and Start Server
@@ -55,5 +55,5 @@ mongoose.connect(process.env.MONGODB_URI)
         });
     })
     .catch((err) => {
-        console.log("Database Connection Error:", err);
+        console.error("Database Connection Error:", err);
     });
