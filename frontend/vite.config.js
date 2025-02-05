@@ -3,13 +3,13 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/',
+  build: {
+    outDir: 'dist'
+  },
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:3000', // Proxy API requests to backend
-        changeOrigin: true,
-        secure: false,
-      },
-    },
-  },
+      '/api': 'https://your-backend.vercel.app' // Change this to your deployed backend URL
+    }
+  }
 });
