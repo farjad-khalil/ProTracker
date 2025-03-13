@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import WorkoutForm from './WorkoutForm'
+import { Toaster } from 'sonner'
 import { WorkoutContext } from '../context/context'
 import format from 'date-fns/format'
 import { Clock, Dumbbell, Repeat } from "lucide-react";
@@ -43,6 +44,7 @@ function Home() {
 
         <div className=''>
             <div className='grid grid-cols-3 gap-2 gap-y-10'>
+            
                 {workouts.map((w, i) => (
                     <Card className="w-[320px] h-[280px] bg-white shadow-md rounded-lg relative p-4" key={i}>
                         {/* Card Header */}
@@ -101,6 +103,8 @@ function Home() {
 
             </div>
             <WorkoutForm />
+        <Toaster />
+            
         </div>
     )
 }
