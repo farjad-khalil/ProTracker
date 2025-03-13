@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import WorkoutForm from './WorkoutForm'
-import { Toaster } from 'sonner'
+import { toast, Toaster } from 'sonner'
 import { WorkoutContext } from '../context/context'
 import format from 'date-fns/format'
-import { Clock, Dumbbell, Repeat } from "lucide-react";
+import { Clock, Delete, Dumbbell, Repeat, Trash, Trash2 } from "lucide-react";
 import {
     Card,
     CardContent,
@@ -27,6 +27,13 @@ function Home() {
         }
         else {
             dispatch({ type: 'DELETE_WORKOUT', payload: w._id })
+            toast.success("Workout Deleted", {
+                description: ``,
+                action: {
+                        label: "close",
+                        onClick: () => console.log("Undo"),
+                    },
+            });
         }
 
     }
@@ -75,7 +82,9 @@ function Home() {
                         <CardFooter className="flex justify-between items-center cursor-pointer">
                             <p className="absolute bottom-2 left-2 text-sm text-gray-500"></p>
                         </CardFooter>
-
+                        <div className='p-2 w-10   hover:bg-red-100 transition-all delay-75 ease-in-out  rounded-full text-red-8600 cursor-pointer' onClick={() => { handleDelete(w) }}>
+                            <Trash2 className=' text-red-800 ' />
+                        </div>
                         {/* Time Display at Bottom Right */}
                         <div className="absolute bottom-4 right-4 text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-md">
                         {format(new Date(w.createdAt), "dd/MM/yyyy")} | 10:45 AM
