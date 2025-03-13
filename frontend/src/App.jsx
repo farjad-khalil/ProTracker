@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Sidebar from "./components/Sidebar.jsx";
 import Home from "./components/home.jsx";
 import Navbar from "./components/navbar.jsx";
+import WorkoutForm from "./components/WorkoutForm.jsx";
 const Layout = () => {
   return (
     <div className="flex ">
@@ -10,6 +11,7 @@ const Layout = () => {
         <Navbar />
         <div className="p-32 pt-40 bg-gray-200">
           <Outlet />
+          <WorkoutForm />
         </div>
       </div>
     </div>

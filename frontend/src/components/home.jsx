@@ -10,6 +10,7 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
+    
 } from "@/components/ui/card"
 
 function Home() {
@@ -43,7 +44,7 @@ function Home() {
         <div className=''>
             <div className='grid grid-cols-3 gap-2 gap-y-10'>
                 {workouts.map((w, i) => (
-                    <Card className="w-[320px] h-[280px] bg-white shadow-md rounded-lg relative p-4">
+                    <Card className="w-[320px] h-[280px] bg-white shadow-md rounded-lg relative p-4" key={i}>
                         {/* Card Header */}
                         <CardHeader className="pb-2 cursor-pointer">
                             <div className="flex justify-between items-center">
