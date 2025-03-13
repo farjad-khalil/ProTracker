@@ -12,7 +12,7 @@ function WorkoutForm() {
         e.preventDefault();
         const workout = { title, load, reps }
         
-        const response = await fetch('https://workouttrackerbackend.vercel.app/api/workouts',{
+        const response = await fetch('/api/workouts',{
             method:'POST',
             body:JSON.stringify(workout),
             headers:{
@@ -35,7 +35,7 @@ function WorkoutForm() {
     }
     return (
         <div>
-            <form className='create' onSubmit={handleSubmit}>
+            <form className=' ' onSubmit={handleSubmit}>
                 <h3>Add a new workout</h3>
                 <label>Title</label>
                 <input onChange={(e) => { setTitle(e.target.value) }} type='text' value={title} />
@@ -44,7 +44,7 @@ function WorkoutForm() {
                 <label>LOAD:</label>
                 <input onChange={(e) => { setLoad(e.target.value) }} type='number' value={load} />
                 <button>Add workout</button>
-                {error && <div className='error'> {error}</div>}
+                {error && <div className=' '> {error}</div>}
             </form>
         </div>
     )

@@ -1,12 +1,14 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Navbar from "./components/navbar.jsx";
+import Sidebar from "./components/Sidebar.jsx";
 import Home from "./components/home.jsx";
+import Navbar from "./components/navbar.jsx";
 const Layout = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <div className="pages">
-        <Outlet /> 
+    <div className="flex ">
+      <Sidebar />
+      <div className="pl-52">
+        <Navbar />
+        <Outlet />
       </div>
     </div>
   );
@@ -18,9 +20,21 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> }, // Default child route
       {
-        path:'/abc',
-        element:<>ABC</>
-      }
+        path: '/categories',
+        element: <Home />
+      },
+      {
+        path: '/progress',
+        element: <Home />
+      },
+      {
+        path: '/work',
+        element: <Home />
+      },
+      {
+        path: '/timings',
+        element: <Home />
+      },
     ],
   },
 ]);

@@ -1,15 +1,22 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from "path"
+import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/',
-  build: {
-    outDir: 'dist'
+  plugins: [react(), tailwindcss()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
   server: {
     proxy: {
-      '/api': 'https://your-backend.vercel.app' // Change this to your deployed backend URL
-    }
-  }
+      '/api': {
+        target: 'https://workouttrackerbackend.vercel.app', // Proxy API requests to backend
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

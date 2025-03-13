@@ -1,14 +1,9 @@
-import { Link } from "react-router-dom";
+import React from 'react'
 
- const Navbar = () =>{
-    return (
-        <header>
-            <div className="container">
-                <Link to='/'>
-                    Workout Tracker
-                </Link>
-            </div>
-        </header>
-    )
+export default function Navbar() {
+  return (
+    <div className='bg-slate-700 w-screen'>
+      asdf
+    </div>
+  )
 }
-export default Navbar
