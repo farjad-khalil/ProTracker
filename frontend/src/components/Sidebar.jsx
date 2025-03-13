@@ -4,7 +4,7 @@ const Sidebar = () => {
     const location = useLocation();
     return (
         <header>
-            <div className="fixed left-0 top-0 h-screen w-52 bg-slate-200 flex flex-col justify-between  py-10 pl-10 text-neutral-500 ">
+            <div className="fixed left-0 top-0 z-50 h-screen w-52 bg-white flex flex-col justify-between  py-10 pl-10 text-gray-700 shadow ">
                 {/* Logo */}
                 <div className="flex flex-col">
 
@@ -13,7 +13,7 @@ const Sidebar = () => {
                     </div>
 
                     {/* Navigation Menu */}
-                    <div className="flex flex-col gap-4 text-lg my-10">
+                    <div className="flex flex-col gap-5 text-lg my-10">
                         <Link
                             to="/"
                             className={`cursor-pointer ${location.pathname === "/" ? "text-blue-600 font-semibold" : ""
