@@ -11,11 +11,11 @@ import {
     CardFooter,
     CardHeader,
     CardTitle,
-    
+
 } from "@/components/ui/card"
 
 function Home() {
-    
+
     const { workouts, dispatch } = useContext(WorkoutContext)
     const handleDelete = async (w) => {
         console.log(`/api/workouts/${w._id}`);
@@ -30,9 +30,9 @@ function Home() {
             toast.success("Workout Deleted", {
                 description: ``,
                 action: {
-                        label: "close",
-                        onClick: () => console.log("Undo"),
-                    },
+                    label: "close",
+                    onClick: () => console.log("Undo"),
+                },
             });
         }
 
@@ -51,14 +51,24 @@ function Home() {
 
         <div className=''>
             <div className='grid grid-cols-3 gap-2 gap-y-10'>
-            
+
                 {workouts.map((w, i) => (
                     <Card className="w-[320px] h-[280px] bg-white shadow-md rounded-lg relative p-4" key={i}>
                         {/* Card Header */}
                         <CardHeader className="pb-2 cursor-pointer">
                             <div className="flex justify-between items-center">
                                 <CardTitle className="text-xl font-semibold text-gray-900 capitalize">{w.title}</CardTitle>
-                                <CardDescription className="capitalize">{w.exerciseType}</CardDescription>
+                                <CardDescription
+                                    className={`capitalize px-2 py-[2px] rounded-md ${w.exerciseType === "strength" ? "bg-red-50 text-red-900" :
+                                        w.exerciseType === "cardio" ? "bg-blue-50 text-blue-900" :
+                                            w.exerciseType === "balance" ? "bg-green-50 text-green-900" :
+                                                w.exerciseType === "stretching" ? "bg-yellow-50 text-yellow-900" :
+                                                    "bg-gray-50 text-gray-900" // Default fallback
+                                        }`
+                                    }
+                                >
+                                    {w.exerciseType}
+                                </CardDescription>
                             </div>
                         </CardHeader>
 
@@ -87,7 +97,7 @@ function Home() {
                         </div>
                         {/* Time Display at Bottom Right */}
                         <div className="absolute bottom-4 right-4 text-xs text-gray-600 bg-gray-200 px-2 py-1 rounded-md">
-                        {format(new Date(w.createdAt), "dd/MM/yyyy")} | 10:45 AM
+                            {format(new Date(w.createdAt), "dd/MM/yyyy")} | 10:45 AM
                         </div>
                     </Card>
                 ))}
@@ -112,8 +122,8 @@ function Home() {
 
             </div>
             <_WorkoutForm />
-        <Toaster />
-            
+            <Toaster />
+
         </div>
     )
 }

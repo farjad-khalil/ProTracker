@@ -6,7 +6,7 @@ function MyInput({type,e_class,placeholder,value,set}) {
     <div>
       <input
               type={type}
-              className={`w-64 min-w-0 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 ${e_class}`}
+              className={`w-64 min-w-0 px-3 py-2 border  focus:outline-none focus:ring-2 focus:ring-gray-500  ${e_class}`}
               placeholder={placeholder}
               onChange={(e) => { set(e.target.value) }}
             />

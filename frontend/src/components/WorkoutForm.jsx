@@ -83,7 +83,7 @@ export default function WorkoutForm() {
         <Dialog>
             <DialogTrigger asChild>
                 {/* ✅ Ensure it wraps only ONE child */}
-                <button className="p-2 bg-green-100 rounded-full text-green-600 cursor-pointer">
+                <button className="p-2 bg-green-100 rounded-full text-green-600 cursor-pointer hover:bg-green-200">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
@@ -140,10 +140,10 @@ export default function WorkoutForm() {
                                     <SelectValue placeholder="exercise type" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="strenght">Strenght</SelectItem>
+                                    <SelectItem value="strength">Strenght</SelectItem>
                                     <SelectItem value="cardio">Cardio</SelectItem>
                                     <SelectItem value="balance">Balance training</SelectItem>
-                                    <SelectItem value="streching">Streching</SelectItem>
+                                    <SelectItem value="stretching">Stretching</SelectItem>
                                 </SelectContent>
                             </Select>
 
