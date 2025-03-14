@@ -6,7 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import MyDialog from './myDialog';
+import WorkoutForm from './WorkoutForm';
 
 
 export default function Navbar() {
@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="bg-gray-50 w-[calc(100%-13rem)]  h-20 fixed top-0 z-20 flex items-center justify-between px-6">
 
       <div className="text-gray-700 text-xl ">Overview </div>
-      <MyDialog />
+      <WorkoutForm />
         
     </nav>
   );

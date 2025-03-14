@@ -15,6 +15,10 @@ const workoutSchema = new schema(
             type: Number,
             required: true
         },
+        exerciseType: {
+            type: String,
+            required: true
+        },
     },
     {
         timestamps: true

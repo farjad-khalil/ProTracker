@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import WorkoutForm from './WorkoutForm'
+import _WorkoutForm from './_WorkoutForm'
 import { toast, Toaster } from 'sonner'
 import { WorkoutContext } from '../context/context'
 import format from 'date-fns/format'
@@ -39,7 +39,7 @@ function Home() {
     }
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch('/api/workouts')
+            const response = await fetch('http://localhost:3000/api/workouts')
             const json = await response.json()
             if (response.ok) {
                 dispatch({ type: 'SET_WORKOUTS', payload: json })
@@ -58,7 +58,7 @@ function Home() {
                         <CardHeader className="pb-2 cursor-pointer">
                             <div className="flex justify-between items-center">
                                 <CardTitle className="text-xl font-semibold text-gray-900 capitalize">{w.title}</CardTitle>
-                                <CardDescription>Strenght</CardDescription>
+                                <CardDescription className="capitalize">{w.exerciseType}</CardDescription>
                             </div>
                         </CardHeader>
 
@@ -111,7 +111,7 @@ function Home() {
                 }
 
             </div>
-            <WorkoutForm />
+            <_WorkoutForm />
         <Toaster />
             
         </div>

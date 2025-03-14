@@ -11,7 +11,6 @@ const Layout = () => {
         <Navbar />
         <div className="p-32 pt-40 bg-gray-200">
           <Outlet />
-          <WorkoutForm />
         </div>
       </div>
     </div>

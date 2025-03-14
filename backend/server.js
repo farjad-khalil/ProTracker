@@ -15,7 +15,7 @@ const app = express();
 
 // ✅ Allow CORS for specific frontend domain
 const corsOptions = {
-    origin: ["https://workouttrackerapp-rho.vercel.app"], // Your frontend domain
+    origin: ["http://localhost:5173"], // Your frontend domain change
     methods: "GET,POST,PUT,PATCH,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true
@@ -27,7 +27,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://workouttrackerapp-rho.vercel.app");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");//change
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.setHeader("Access-Control-Allow-Credentials", "true");
