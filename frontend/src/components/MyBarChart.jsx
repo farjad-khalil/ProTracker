@@ -66,8 +66,8 @@ export default function MyBarChart({workouts}) {
 
     return (
         <Card className='h-96 w-96'>
-            <CardHeader>
-                <CardTitle>Monthly breakdown</CardTitle>
+            <CardHeader className='text-center'>
+                <CardTitle  >Monthly breakdown</CardTitle>
                 <CardDescription>January - June 2024</CardDescription>
             </CardHeader>
             <CardContent className=''>
@@ -90,8 +90,8 @@ export default function MyBarChart({workouts}) {
                     </BarChart>
                 </ChartContainer>
             </CardContent>
-            <CardFooter className="flex-col items-start gap-2 text-sm">
-                <div className="leading-none text-muted-foreground">
+            <CardFooter className="flex-col items-center gap-2 text-sm font-semibold">
+                <div className="leading-none ">
                     Showing data for the last 6 months
                 </div>
             </CardFooter>

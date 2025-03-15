@@ -53,7 +53,7 @@ function Home() {
 
         <div className='min-h-screen'>
         <div className='text-indigo-900 text-2xl font-semibold mb-3'>Workouts</div>
-            <div className='grid grid-cols-3 gap-2 gap-y-10'>
+            <div className='grid min-[1450px]:grid-cols-3 min-[1160px]:grid-cols-2 grid-cols-1 gap-2 gap-y-10 '>
                 
                 {workouts.map((w, i) => (
                     

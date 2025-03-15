@@ -10,7 +10,7 @@ const Layout = () => {
       <Sidebar />
       <div className="flex-1 ml-52">
         <Navbar />
-        <div className="p-32 pt-36 bg-gray-200">
+        <div className="p-32 pt-36 max-[780px]:p-10 max-[780px]:pt-32 bg-gray-200">
           <Outlet />
         </div>
       </div>

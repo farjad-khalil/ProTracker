@@ -14,7 +14,7 @@ const Sidebar = () => {
                     </div>
 
                     {/* Navigation Menu */}
-                    <div className="flex flex-col gap-5 text-lg my-10">
+                    <div className="flex flex-col gap-5 text-md my-10">
                         <Link
                             to="/"
                             className={`cursor-pointer ${location.pathname === "/" ? "text-blue-600 font-semibold" : ""
