@@ -24,9 +24,9 @@ const Sidebar = () => {
                 {/* Logo */}
                 <div className="flex flex-col">
 
-                    <div className="text-2xl font-bold text-indigo-900">
+                    <Link className="text-2xl font-bold text-indigo-900 cursor-pointer" to='/'>
                         ProTracker
-                    </div>
+                    </Link>
 
                     {/* Navigation Menu */}
                     <div className="flex flex-col gap-5 text-md my-10">

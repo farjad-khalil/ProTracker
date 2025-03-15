@@ -19,7 +19,7 @@ export default function Analytics() {
             }, [dispatch])
     
     return (
-        <div className='min-h-screen p-32 pt-36 max-[780px]:p-10 max-[780px]:pt-32'>
+        <div className='min-h-screen p-32 pt-28 max-[780px]:p-10 max-[780px]:pt-32'>
             <div className='text-indigo-900 text-2xl font-semibold mb-3'>Track your exercises</div>
             <div className='flex gap-10 mb-10'>
                 <MyBarChart workouts={workouts}/>

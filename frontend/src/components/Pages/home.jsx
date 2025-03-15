@@ -51,13 +51,13 @@ function Home() {
     
     return (
 
-        <div className='min-h-screen p-32 pt-36 max-[780px]:p-10 max-[780px]:pt-32'>
+        <div className='min-h-screen p-32 pt-28 max-[780px]:p-10 max-[780px]:pt-32'>
         <div className='text-indigo-900 text-2xl font-semibold mb-3'>Workouts</div>
             <div className='grid min-[1450px]:grid-cols-3 min-[1160px]:grid-cols-2 grid-cols-1 gap-2 gap-y-10 '>
                 
                 {workouts.map((w, i) => (
                     
-                    <Card className="w-[320px] h-[280px] bg-white rounded-lg relative p-4 transition-shadow duration-300 shadow-md hover:shadow-lg hover:shadow-gray-400" key={i}>
+                    <Card className="w-[320px] h-[280px] bg-white rounded-lg relative p-4 transition-all duration-300 shadow-md hover:shadow-lg hover:shadow-gray-400 " key={i}>
                         {/* Card Header */}
                         <CardHeader className="pb-2 cursor-pointer">
                             <div className="flex justify-between items-center">
@@ -107,7 +107,6 @@ function Home() {
                 ))}
 
             </div>
-
 
             <div className=' '>
 
