@@ -48,11 +48,11 @@ const Sidebar = () => {
 
                         </Link>
                         <Link
-                            to="/categories"
-                            className={`cursor-pointer ${location.pathname === "/categories" ? "text-blue-600 font-semibold" : "hover:text-gray-600 "
+                            to="/community"
+                            className={`cursor-pointer ${location.pathname === "/community" ? "text-blue-600 font-semibold" : "hover:text-gray-600 "
                                 }`}>
                             <div className="flex">
-                                <ChartNoAxesGanttIcon className="mr-2" />Categories
+                                <ChartNoAxesGanttIcon className="mr-2" />Community
                             </div>
 
                         </Link>

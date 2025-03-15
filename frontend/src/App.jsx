@@ -4,13 +4,14 @@ import Home from "./components/Pages/home.jsx";
 import Navbar from "./components/navbar.jsx";
 import WorkoutForm from "./components/WorkoutForm.jsx";
 import Analytics from "./components/Pages/Analytics.jsx";
+import Community from "./components/Pages/Community.jsx";
 const Layout = () => {
   return (
     <div className="flex ">
       <Sidebar />
       <div className="flex-1 ml-52">
         <Navbar />
-        <div className="p-32 pt-36 max-[780px]:p-10 max-[780px]:pt-32 bg-gray-200">
+        <div className=" bg-gray-200">
           <Outlet />
         </div>
       </div>
@@ -28,8 +29,8 @@ const router = createBrowserRouter([
         element: <Analytics />
       },
       {
-        path: '/categories',
-        element: <Home />
+        path: '/community',
+        element: <Community />
       },
       {
         path: '/progress',

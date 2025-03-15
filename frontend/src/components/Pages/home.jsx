@@ -51,7 +51,7 @@ function Home() {
     
     return (
 
-        <div className='min-h-screen'>
+        <div className='min-h-screen p-32 pt-36 max-[780px]:p-10 max-[780px]:pt-32'>
         <div className='text-indigo-900 text-2xl font-semibold mb-3'>Workouts</div>
             <div className='grid min-[1450px]:grid-cols-3 min-[1160px]:grid-cols-2 grid-cols-1 gap-2 gap-y-10 '>
                 
