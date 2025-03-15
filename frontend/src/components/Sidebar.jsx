@@ -1,4 +1,4 @@
-import { Backpack, ChartNoAxesGanttIcon, Clock1, ClockAlert, DropletIcon, DrumIcon, Home, LucideWorkflow, Workflow, WorkflowIcon } from "lucide-react";
+import { AlignVerticalJustifyEnd, Backpack, ChartBar, ChartNoAxesGanttIcon, Clock1, ClockAlert, DropletIcon, DrumIcon, Home, LucideWorkflow, Workflow, WorkflowIcon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
@@ -20,8 +20,17 @@ const Sidebar = () => {
                             className={`cursor-pointer ${location.pathname === "/" ? "text-blue-600 font-semibold" : ""
                                 }`}>
                             <div className="flex">
-                                <Home className="mr-2" />Workout
+                                <Home className="mr-2" />Home
                             </div>
+                        </Link>
+                        <Link
+                            to="/analytics"
+                            className={`cursor-pointer ${location.pathname === "/analytics" ? "text-indigo-600 font-semibold" : ""
+                                }`}>
+                            <div className="flex">
+                                <ChartBar className="mr-2" />Analytics
+                            </div>
+
                         </Link>
                         <Link
                             to="/categories"

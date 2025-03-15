@@ -4,9 +4,9 @@ const Workout = require('../Models/workoutModel')
 
 //CREATE a new workout
 const createWorkout = async (req,res)=> {
-    const {title,load,reps,exerciseType} =  req.body
+    const {title,load,reps,exerciseType,restTime} =  req.body
     try{
-        const workout = await Workout.create({title,load,reps,exerciseType})
+        const workout = await Workout.create({title,load,reps,exerciseType,restTime})
         res.status(200).json(workout)
     }catch(err){
         res.status(400).json({error:err.message})

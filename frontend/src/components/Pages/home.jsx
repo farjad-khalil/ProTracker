@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import _WorkoutForm from './_WorkoutForm'
+import _WorkoutForm from '../_WorkoutForm'
 import { toast, Toaster } from 'sonner'
-import { WorkoutContext } from '../context/context'
+import { WorkoutContext, WorkoutContextProvider } from '../../context/context'
 import format from 'date-fns/format'
 import { Clock, Delete, Dumbbell, Repeat, Trash, Trash2 } from "lucide-react";
 import {
@@ -47,17 +47,21 @@ function Home() {
         }
         fetchWorkouts()
     }, [dispatch])
+    console.log(workouts);
+    
     return (
 
-        <div className=''>
+        <div className='min-h-screen'>
+        <div className='text-indigo-900 text-2xl font-semibold mb-3'>Workouts</div>
             <div className='grid grid-cols-3 gap-2 gap-y-10'>
-
+                
                 {workouts.map((w, i) => (
+                    
                     <Card className="w-[320px] h-[280px] bg-white shadow-md rounded-lg relative p-4" key={i}>
                         {/* Card Header */}
                         <CardHeader className="pb-2 cursor-pointer">
                             <div className="flex justify-between items-center">
-                                <CardTitle className="text-xl font-semibold text-gray-900 capitalize">{w.title}</CardTitle>
+                                <CardTitle className="text-xl font-semibold text-indigo-950 capitalize">{w.title}</CardTitle>
                                 <CardDescription
                                     className={`capitalize px-2 py-[2px] rounded-md ${w.exerciseType === "strength" ? "bg-red-50 text-red-900" :
                                         w.exerciseType === "cardio" ? "bg-blue-50 text-blue-900" :
@@ -75,16 +79,16 @@ function Home() {
                         {/* Card Content */}
                         <CardContent className="space-y-2 text-gray-700 cursor-pointer">
                             <div className="flex items-center gap-2">
-                                <Dumbbell className="w-5 h-5 text-red-700" />
-                                <p className=" font-medium">Load: <span className="font-semibold">{w.load}kg</span></p>
+                                <Dumbbell className="w-5 h-5 text-red-700 " />
+                                <p className=" font-light">Load: <span className="font-semibold">{w.load}kg</span></p>
                             </div>
                             <div className="flex items-center gap-2">
-                                <Repeat className="w-5 h-5 text-amber-500" />
-                                <p className="font-medium">Repetitions: <span className="font-semibold">15</span></p>
+                                <Repeat className="w-5 h-5 text-amber-500 " />
+                                <p className="font-light">Repetitions: <span className="font-semibold">{w.reps}</span></p>
                             </div>
                             <div className="flex items-center gap-2">
-                                <Clock className="w-5 h-5 text-blue-700" />
-                                <p className="font-medium">Rest Time: <span className="font-semibold">60 sec</span></p>
+                                <Clock className="w-5 h-5 text-blue-700 "  />
+                                    <p className="font-light">Rest Time: <span className="font-semibold">{w.restTime}</span></p>
                             </div>
                         </CardContent>
 
@@ -92,7 +96,7 @@ function Home() {
                         <CardFooter className="flex justify-between items-center cursor-pointer">
                             <p className="absolute bottom-2 left-2 text-sm text-gray-500"></p>
                         </CardFooter>
-                        <div className='p-2 w-10   hover:bg-red-100 transition-all delay-75 ease-in-out  rounded-full text-red-8600 cursor-pointer' onClick={() => { handleDelete(w) }}>
+                        <div className='p-2 w-10 absolute bottom-4 hover:bg-red-100 transition-all delay-75 ease-in-out  rounded-full text-red-8600 cursor-pointer' onClick={() => { handleDelete(w) }}>
                             <Trash2 className=' text-red-800 ' />
                         </div>
                         {/* Time Display at Bottom Right */}

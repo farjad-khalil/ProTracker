@@ -1,4 +1,4 @@
-import { BadgePlus, Captions, Clock, Dumbbell, Repeat } from 'lucide-react';
+import { BadgePlus, Captions, Clock, Dumbbell, Repeat, Timer } from 'lucide-react';
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -34,13 +34,14 @@ export default function WorkoutForm() {
     const [title, setTitle] = useState('');
     const [load, setLoad] = useState('');
     const [reps, setReps] = useState('');
+    const [restTime, setRestTime] = useState('');
     const [exerciseType, setExerciseType] = useState('');
     const { dispatch } = useContext(WorkoutContext)
     const handleSubmit = async (e) => {
         console.log('handle called');
 
         e.preventDefault();
-        const workout = { title, load, reps ,exerciseType}
+        const workout = { title, load, reps ,exerciseType,restTime}
 
         const response = await fetch('/api/workouts', {
             method: 'POST',
@@ -63,6 +64,8 @@ export default function WorkoutForm() {
             setTitle('')
             setLoad('')
             setReps('')
+            setRestTime('')
+            setExerciseType('')
             console.log("new workout added");
 
             toast.success("Workout Added", {
@@ -130,6 +133,13 @@ export default function WorkoutForm() {
                                 Reps
                             </Label>
                             <MyInput id="reps" value={reps} set={setReps} e_class="flex-1" placeholder="Repetitions" type={'number'} />
+                        </div>
+                        <div className="flex justify-between">
+                            <Label htmlFor="Rest Time" className="text-right">
+                                <Timer  className="w-5 h-5 text-indigo-500" />
+                                Rest Time
+                            </Label>
+                            <MyInput id="reps" value={reps} set={setRestTime} e_class="flex-1" placeholder="Time between reps" type={'number'} />
                         </div>
                         <div className="flex justify-end">
                             <Select
