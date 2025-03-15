@@ -86,11 +86,11 @@ export default function WorkoutForm() {
         <Dialog>
             <DialogTrigger asChild>
                 {/* ✅ Ensure it wraps only ONE child */}
-                <button className="p-2 bg-green-100 rounded-full text-green-600 cursor-pointer hover:bg-green-200">
+                <button className="p-2 bg-green-100 rounded-full text-green-600 cursor-pointer hover:bg-green-200 transition-shadow duration-300 shadow-md hover:shadow-lg hover:shadow-gray-400">
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <div>
+                                <div className=''>
                                     <BadgePlus />
                                 </div>
                             </TooltipTrigger>

@@ -57,7 +57,7 @@ function Home() {
                 
                 {workouts.map((w, i) => (
                     
-                    <Card className="w-[320px] h-[280px] bg-white shadow-md rounded-lg relative p-4" key={i}>
+                    <Card className="w-[320px] h-[280px] bg-white rounded-lg relative p-4 transition-shadow duration-300 shadow-md hover:shadow-lg hover:shadow-gray-400" key={i}>
                         {/* Card Header */}
                         <CardHeader className="pb-2 cursor-pointer">
                             <div className="flex justify-between items-center">
