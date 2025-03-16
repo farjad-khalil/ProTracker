@@ -13,7 +13,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', // Proxy API requests to backend /change
+        target: 'https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app', // Proxy API requests to backend /change
         changeOrigin: true,
         secure: false,
       },
