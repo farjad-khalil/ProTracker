@@ -1,4 +1,4 @@
-import { AtSign, Backpack, ChartBar, ChartNoAxesGanttIcon, ClockAlert, Edit, Home, Mail, User, WorkflowIcon } from "lucide-react";
+import { AtSign, Backpack, ChartBar, ChartNoAxesGanttIcon, ClockAlert, Edit, Flame, Home, Mail, User, WorkflowIcon } from "lucide-react";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -57,12 +57,12 @@ const Sidebar = () => {
 
                         </Link>
                         <Link
-                            to="/progress"
-                            className={`cursor-pointer ${location.pathname === "/progress" ? "text-blue-600 font-semibold" : "hover:text-gray-600 "
+                            to="/calories"
+                            className={`cursor-pointer ${location.pathname === "/calories" ? "text-blue-600 font-semibold" : "hover:text-gray-600 "
                                 }`}>
 
                             <div className="flex">
-                                <WorkflowIcon className="mr-2" />progress
+                                <Flame className="mr-2" />Calories
                             </div>
                         </Link>
                         <Link

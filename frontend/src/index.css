@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-    --color-restTime: hsl(210, 100%, 50%);
+  --color-restTime: hsl(210, 100%, 50%);
   --color-averageRestTime: hsl(330, 100%, 50%);
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -37,6 +37,8 @@ body {
   --chart-3: 216 92% 60%;
   --chart-4: 210 98% 78%;
   --chart-5: 212 97% 87%;
+  --chart-6: 347 77% 50%;
+  --chart-7: 352 83% 91%;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.141 0.005 285.823);
@@ -126,6 +128,7 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

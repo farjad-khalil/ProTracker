@@ -61,11 +61,11 @@ const chartData = generateRestData();
 const chartConfig = {
   restTime: {
     label: "Rest Time (s)",
-    color: "hsl(var(--chart-1))",
+    color: "hsl(var(--chart-6))",
   },
   averageRestTime: {
     label: "Avg Rest Time (s)",
-    color: "hsl(var(--chart-2))",
+    color: "hsl(var(--chart-7))",
   },
 };
 
