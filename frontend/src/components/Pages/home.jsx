@@ -3,7 +3,7 @@ import _WorkoutForm from '../_WorkoutForm'
 import { toast, Toaster } from 'sonner'
 import { WorkoutContext, WorkoutContextProvider } from '../../context/context'
 import format from 'date-fns/format'
-import { Clock, Dumbbell, Repeat, Trash2, Flame, CalendarCheck, Trophy} from "lucide-react";
+import { Clock, Dumbbell, Repeat, Trash2, Flame, CalendarCheck, Trophy } from "lucide-react";
 import { } from "lucide-react";
 
 import {
@@ -18,30 +18,30 @@ import {
 import CommunityCards from '../CommunityCards'
 
 const workoutCards = [
-  {
-    title: "Total Workouts",
-    count: 120, // Example count
-    icon: <Dumbbell className="text-purple-500" />,
-    bg: "bg-purple-800/20",
-  },
-  {
-    title: "Active Days",
-    count: 75, // Number of days user worked out
-    icon: <CalendarCheck className="text-yellow-500" />,
-    bg: "bg-yellow-800/20",
-  },
-  {
-    title: "Calories Burned",
-    count: 18_500, // Example calorie count
-    icon: <Flame className="text-red-500" />,
-    bg: "bg-red-800/20",
-  },
-  {
-    title: "Personal Bests",
-    count: 12, // Example personal bests
-    icon: <Trophy className="text-blue-500" />,
-    bg: "bg-blue-800/20",
-  },
+    {
+        title: "Total Workouts",
+        count: 120, // Example count
+        icon: <Dumbbell className="text-purple-500" />,
+        bg: "bg-purple-800/20",
+    },
+    {
+        title: "Active Days",
+        count: 75, // Number of days user worked out
+        icon: <CalendarCheck className="text-yellow-500" />,
+        bg: "bg-yellow-800/20",
+    },
+    {
+        title: "Calories Burned",
+        count: 18_500, // Example calorie count
+        icon: <Flame className="text-red-500" />,
+        bg: "bg-red-800/20",
+    },
+    {
+        title: "Personal Bests",
+        count: 12, // Example personal bests
+        icon: <Trophy className="text-blue-500" />,
+        bg: "bg-blue-800/20",
+    },
 ];
 
 
@@ -51,7 +51,11 @@ function Home() {
     const handleDelete = async (w) => {
         console.log(`/api/workouts/${w._id}`);
         const response = await fetch(`https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts/${w._id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: "include", // ✅ Needed for CORS
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
         if (!response.ok) {
             console.log(json.error);
@@ -70,7 +74,13 @@ function Home() {
     }
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch('https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts')
+            const response = await fetch('https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts', {
+                method: "GET",
+                credentials: "include", // ✅ Needed for CORS
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
             const json = await response.json()
             if (response.ok) {
                 dispatch({ type: 'SET_WORKOUTS', payload: json })
