@@ -6,6 +6,7 @@ import WorkoutForm from "./components/WorkoutForm.jsx";
 import Analytics from "./components/Pages/Analytics.jsx";
 import Community from "./components/Pages/Community.jsx";
 import Calories from "./components/Pages/Calories.jsx";
+import Setting from "./components/Pages/Settings.jsx";
 const Layout = () => {
   return (
     <div className="flex ">
@@ -38,8 +39,8 @@ const router = createBrowserRouter([
         element: <Calories />
       },
       {
-        path: '/work',
-        element: <Home />
+        path: '/settings',
+        element: <Setting />
       },
       {
         path: '/timings',

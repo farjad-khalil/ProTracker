@@ -66,12 +66,12 @@ const Sidebar = () => {
                             </div>
                         </Link>
                         <Link
-                            to="/work"
-                            className={`cursor-pointer ${location.pathname === "/work" ? "text-blue-600 font-semibold" : "hover:text-gray-600 "
+                            to="/settings"
+                            className={`cursor-pointer ${location.pathname === "/settings" ? "text-blue-600 font-semibold" : "hover:text-gray-600 "
                                 }`}>
 
                             <div className="flex">
-                                <Backpack className="mr-2" />Work
+                                <Backpack className="mr-2" />Settings
                             </div>
                         </Link>
                         <Link
