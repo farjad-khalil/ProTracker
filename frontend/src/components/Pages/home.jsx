@@ -50,7 +50,7 @@ function Home() {
     const { workouts, dispatch } = useContext(WorkoutContext)
     const handleDelete = async (w) => {
         console.log(`/api/workouts/${w._id}`);
-        const response = await fetch(`https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts/${w._id}`, {
+        const response = await fetch(`https://workouttrackerbackend.vercel.app/api/workouts/${w._id}`, {
             method: 'DELETE',
             credentials: "include", // ✅ Needed for CORS
             headers: {
@@ -74,7 +74,7 @@ function Home() {
     }
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch('https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts', {
+            const response = await fetch('https://workouttrackerbackend.vercel.app/api/workouts', {
                 method: "GET",
                 credentials: "include", // ✅ Needed for CORS
                 headers: {
