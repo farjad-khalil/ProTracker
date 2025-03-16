@@ -43,7 +43,7 @@ export default function WorkoutForm() {
         e.preventDefault();
         const workout = { title, load, reps ,exerciseType,restTime}
 
-        const response = await fetch('/api/workouts', {
+        const response = await fetch('https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts', {
             method: 'POST',
             body: JSON.stringify(workout),
             headers: {

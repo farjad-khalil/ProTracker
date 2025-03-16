@@ -50,7 +50,7 @@ function Home() {
     const { workouts, dispatch } = useContext(WorkoutContext)
     const handleDelete = async (w) => {
         console.log(`/api/workouts/${w._id}`);
-        const response = await fetch(`/api/workouts/${w._id}`, {
+        const response = await fetch(`https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts/${w._id}`, {
             method: 'DELETE'
         })
         if (!response.ok) {
@@ -70,7 +70,7 @@ function Home() {
     }
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch('http://localhost:3000/api/workouts')
+            const response = await fetch('https://workouttrackerbackend-7nb918sn4-farjads-projects-4da592f0.vercel.app/api/workouts')
             const json = await response.json()
             if (response.ok) {
                 dispatch({ type: 'SET_WORKOUTS', payload: json })
