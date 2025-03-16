@@ -9,43 +9,26 @@ const {
     getSinWorkout, 
     deleteWorkout, 
     updateWorkout 
-} = require('../Controllers/controllerFunctions'); // ✅ Ensure the correct path
+} = require('./Controllers/controllerFunctions');
 
 const app = express();
 
-// ✅ Allow CORS for both local & deployed frontend
-const allowedOrigins = [
-    "http://localhost:5173",
-    "https://pro-tracker-pi.vercel.app"
-];
-
+// ✅ Allow CORS from ANY origin
 app.use(cors({
-    origin: allowedOrigins,
+    origin: "*",  // ✅ Allows requests from everywhere
     methods: "GET,POST,PUT,PATCH,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true
 }));
 
+// ✅ Middleware
 app.use(express.json());
 
-// ✅ MongoDB Connection (Prevents multiple connections)
-let isConnected = false;
-
-async function connectToDB() {
-    if (!isConnected) {
-        try {
-            await mongoose.connect(process.env.MONGODB_URI, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true
-            });
-            isConnected = true;
-            console.log("✅ Connected to MongoDB");
-        } catch (error) {
-            console.error("❌ Database Connection Error:", error);
-        }
-    }
-}
-connectToDB();
+// ✅ Debugging - Log incoming requests
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.path}`);
+    next();
+});
 
 // ✅ API Routes
 app.get('/api/workouts', getAllWorkout);
@@ -54,5 +37,14 @@ app.post('/api/workouts', createWorkout);
 app.delete('/api/workouts/:id', deleteWorkout);
 app.patch('/api/workouts/:id', updateWorkout);
 
-// ✅ Export as a Serverless Function
-module.exports = app;
+// ✅ MongoDB Connection
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        const PORT = process.env.PORT || 5000;
+        app.listen(PORT, () => {
+            console.log(`✅ CONNECTED TO DB & LISTENING ON PORT ${PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.error("❌ Database Connection Error:", err);
+    });
