@@ -13,9 +13,14 @@ const {
 
 const app = express();
 
-// ✅ Allow CORS for specific frontend domain
+// ✅ Allow CORS for both local & production frontend
+const allowedOrigins = [
+    "http://localhost:5173", // Local development
+    "https://pro-tracker-pi.vercel.app" // ✅ Deployed frontend
+];
+
 const corsOptions = {
-    origin: ["https://workouttrackerapp-rho.vercel.app"], // Your frontend domain
+    origin: allowedOrigins,
     methods: "GET,POST,PUT,PATCH,DELETE",
     allowedHeaders: "Content-Type,Authorization",
     credentials: true
@@ -27,7 +32,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://workouttrackerapp-rho.vercel.app");
+    res.setHeader("Access-Control-Allow-Origin", "https://pro-tracker-pi.vercel.app");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -37,7 +42,7 @@ app.use((req, res, next) => {
 
 // ✅ Routes
 app.get('/', (req, res) => {
-    res.json({ message: 'CORS is working properly!' });
+    res.json({ message: 'Backend is running!' });
 });
 
 // Workout Routes
@@ -48,12 +53,14 @@ app.delete('/api/workouts/:id', deleteWorkout);
 app.patch('/api/workouts/:id', updateWorkout);
 
 // ✅ Connect to MongoDB and Start Server
+const PORT = process.env.PORT || 5000;
+
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
-        app.listen(process.env.PORT, () => {
-            console.log('CONNECTED TO DB & LISTENING ON PORT ', process.env.PORT);
+        app.listen(PORT, () => {
+            console.log(`✅ CONNECTED TO DB & LISTENING ON PORT ${PORT}`);
         });
     })
     .catch((err) => {
-        console.error("Database Connection Error:", err);
+        console.error("❌ Database Connection Error:", err);
     });
