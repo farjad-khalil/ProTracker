@@ -150,23 +150,6 @@ function Home() {
 
                 </div>
 
-                <div className=' '>
-
-                    {workouts.length > 0 ? (
-                        workouts.map((w, i) => (
-                            <div key={w._id} className=' '>
-                                <h4>{w.title}</h4>
-                                <p><strong>Reps:</strong>{w.reps}</p>
-                                <p><strong>Load:</strong>{w.load}</p>
-                                {/* <p>{formatDistanceToNow(new Date(w.createdAt), { addSuffix: true })}</p> */}
-                                <span onClick={() => { handleDelete(w) }}>&times;</span> {/* Matches .workout-details span CSS */}
-                            </div>
-                        ))
-                    ) : (<>no workout found...</>)
-                    }
-
-                </div>
-                <_WorkoutForm />
                 <Toaster />
 
             </div>
