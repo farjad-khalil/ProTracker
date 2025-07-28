@@ -20,7 +20,7 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="bg-gray-50 w-[calc(100%-13rem)]  h-20 fixed top-0 z-20 flex items-center justify-between px-6">
+    <nav className="bg-gray-50 w-[calc(100%-13rem)]  h-20 fixed top-0 z-20 flex items-center justify-between px-6 max-sm:w-full ">
 
       <div className="text-indigo-900 text-2xl cursor-default">Overview </div>
       <div className='flex items-center'>

@@ -10,8 +10,10 @@ import Setting from "./components/Pages/Settings.jsx";
 const Layout = () => {
   return (
     <div className="flex ">
-      <Sidebar />
-      <div className="flex-1 ml-52">
+      <div className="max-sm:hidden">
+        <Sidebar />
+      </div>
+      <div className="flex-1 ml-52 max-sm:ml-0">
         <Navbar />
         <div className=" bg-gray-200">
           <Outlet />
@@ -27,24 +29,24 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> }, // Default child route
       {
-        path: '/analytics',
-        element: <Analytics />
+        path: "/analytics",
+        element: <Analytics />,
       },
       {
-        path: '/community',
-        element: <Community />
+        path: "/community",
+        element: <Community />,
       },
       {
-        path: '/calories',
-        element: <Calories />
+        path: "/calories",
+        element: <Calories />,
       },
       {
-        path: '/settings',
-        element: <Setting />
+        path: "/settings",
+        element: <Setting />,
       },
       {
-        path: '/timings',
-        element: <Home />
+        path: "/timings",
+        element: <Home />,
       },
     ],
   },
